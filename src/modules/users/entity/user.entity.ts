@@ -4,7 +4,10 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  BeforeInsert,
 } from 'typeorm';
+
+import * as bcryptjs from 'bcryptjs';
 
 @Entity()
 export class User {
@@ -28,4 +31,20 @@ export class User {
 
   @UpdateDateColumn()
   updated: Date;
+
+  /**
+   * 创建用户时 hash 密码
+   */
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = bcryptjs.hashSync(this.password, 10);
+  }
+
+  /**
+   * 比较密码
+   * @param password 密码
+   */
+  async comparePassword(password: string) {
+    return bcryptjs.compareSync(password, this.password);
+  }
 }
