@@ -21,7 +21,7 @@ export class AuthService {
       user = await this.usersService.create(data);
     }
 
-    if (!user.comparePassword(data.password)) {
+    if (!(await user.comparePassword(data.password))) {
       throw new UnauthorizedException('用户名或密码不正确');
     }
 
