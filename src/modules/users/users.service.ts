@@ -35,4 +35,12 @@ export class UsersService {
   async findOne(username: string) {
     return await this.usersRepository.findOne({ username });
   }
+
+  /**
+   * 根据 userId 查找用户
+   * @param id userId
+   */
+  async findById(id: number) {
+    return await this.usersRepository.findOne({ id });
+  }
 }

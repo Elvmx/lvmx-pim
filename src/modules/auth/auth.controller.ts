@@ -8,10 +8,10 @@ import { LoginDto } from './dto/login.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('login')
-  @HttpCode(200)
   @ApiTags('用户')
   @ApiOperation({ summary: '用户登录' })
+  @Post('login')
+  @HttpCode(200)
   async login(@Body() data: LoginDto) {
     return this.authService.login(data);
   }

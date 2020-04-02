@@ -13,6 +13,7 @@ async function bootstrap() {
     .setTitle('PIM 接口文档')
     .setDescription('我的天，洗脚真爽')
     .setVersion('0.0.1')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
