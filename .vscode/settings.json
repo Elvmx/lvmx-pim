@@ -1,0 +1,12 @@
+{
+  "window.zoomLevel": 1,
+  "editor.fontSize": 18,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.singleQuote": true,
+  "typescript.preferences.importModuleSpecifier": "relative"
+}
