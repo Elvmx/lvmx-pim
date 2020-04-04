@@ -14,7 +14,7 @@ async function bootstrap() {
   // 模板页面目录
   app.setBaseViewsDir(resolve(__dirname, '..', 'views'));
   // 模板引擎设置
-  app.setViewEngine('pug');
+  app.setViewEngine('ejs');
 
   app.useGlobalPipes(new ValidationPipe());
 
