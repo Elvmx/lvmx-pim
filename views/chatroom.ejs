@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <%- include('./components/head.ejs') %>
+
+  <body>
+    <%- include('./components/navbar.ejs') %>
+
+    <div class="container my-5 d-flex flex-column">
+      <h1 class="mb-4">聊天室</h1>
+
+      <div
+        class="border rounded pt-2 px-2 flex-fill d-flex flex-column overflow-hidden"
+      >
+        <ul class="list-unstyled flex-fill overflow-auto">
+          <li class="media my-2">
+            <img
+              src="http://img3.imgtn.bdimg.com/it/u=843732181,1717235150&fm=11&gp=0.jpg"
+              width="30"
+              height="30"
+              class="border rounded mr-2"
+              alt="..."
+            />
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">System</h5>
+              欢迎张三加入聊天室
+            </div>
+          </li>
+          <% new Array(10).fill('hello').forEach(item => { %>
+          <li class="media my-2">
+            <img
+              src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=218375221,1552855610&fm=111&gp=0.jpg"
+              width="30"
+              height="30"
+              class="border rounded mr-2"
+              alt="..."
+            />
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">张三</h5>
+              Hello
+            </div>
+          </li>
+          <li class="media my-2">
+            <div class="media-body text-right">
+              <h5 class="mt-0 mb-1">李四</h5>
+              Hello
+            </div>
+            <img
+              src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1305353222,2352820043&fm=26&gp=0.jpg"
+              width="30"
+              height="30"
+              class="border rounded ml-2"
+              alt="..."
+            />
+          </li>
+          <% }) %>
+        </ul>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="" />
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./components/foot.ejs') %>
+  </body>
+</html>

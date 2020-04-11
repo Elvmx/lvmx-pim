@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <%- include('./components/head.ejs') %>
+
+  <body>
+    <form
+      class="form-signin border rounded"
+      action="javascript:;"
+      method="POST"
+    >
+      <h1 class="h3 mb-3 font-weight-normal text-center">Sign in</h1>
+
+      <label class="sr-only" for="inputUsername">Username</label>
+      <input
+        class="form-control"
+        name="username"
+        id="inputUsername"
+        type="text"
+        placeholder="Username"
+        required=""
+      />
+
+      <label class="sr-only" for="inputPassword">Password</label>
+      <input
+        class="form-control"
+        name="password"
+        id="inputPassword"
+        type="password"
+        placeholder="Password"
+        required=""
+      />
+
+      <p>注意：没有注册过的，登录就注册</p>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Login
+      </button>
+
+      <p class="mt-5 mb-3 text-muted text-center">© 2019-2020</p>
+    </form>
+  </body>
+</html>
