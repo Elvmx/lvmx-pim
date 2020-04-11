@@ -12,4 +12,8 @@ export class AppController {
   @Get('login')
   @Render('login')
   loginPage() {}
+
+  @Get('chatroom')
+  @Render('chatroom')
+  chatroomPage() {}
 }
