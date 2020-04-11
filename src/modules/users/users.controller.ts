@@ -1,13 +1,17 @@
-import { Controller, Get, UseGuards, Req } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import {
-  ApiTags,
-  ApiOperation,
-  ApiBasicAuth,
-  ApiBearerAuth,
-} from '@nestjs/swagger';
+  Controller,
+  Get,
+  UseGuards,
+  Req,
+  Body,
+  Post,
+  HttpCode,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 
 import { UsersService } from './users.service';
+import { UpdatePasswordDto } from './dto/update-password.dto';
 
 @ApiTags('用户')
 @Controller()
@@ -22,5 +26,17 @@ export class UsersController {
     const { userId } = req.user;
     const { password, ...result } = await this.usersService.findById(userId);
     return result;
+  }
+
+  @ApiBearerAuth()
+  @ApiOperation({ summary: '修改密码' })
+  @Post('password')
+  @UseGuards(AuthGuard('jwt'))
+  @HttpCode(200)
+  async updatePasswod(@Req() req, @Body() data: UpdatePasswordDto) {
+    const { userId } = req.user;
+    const { password } = data;
+    await this.usersService.updatePassword(userId, password);
+    return;
   }
 }

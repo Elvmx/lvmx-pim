@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   BeforeInsert,
+  BeforeUpdate,
 } from 'typeorm';
 
 import * as bcryptjs from 'bcryptjs';
@@ -36,7 +37,9 @@ export class User {
    * 创建用户时 hash 密码
    */
   @BeforeInsert()
+  @BeforeUpdate()
   async hashPassword() {
+    console.log('123');
     this.password = bcryptjs.hashSync(this.password, 10);
   }
 
