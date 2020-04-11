@@ -54,4 +54,13 @@ export class UsersService {
     user.password = password;
     return await this.usersRepository.save(user);
   }
+
+  /**
+   * 修改 头像
+   * @param id userId
+   * @param avatar 头像地址
+   */
+  async updateAvatar(id: number, avatar: string) {
+    return await this.usersRepository.update(id, { avatar });
+  }
 }
