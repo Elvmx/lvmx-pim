@@ -1,11 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { IsNotBlank } from '../../../core/decorators/custom-validator.decorator';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class LoginDto {
-  @ApiProperty({ description: '用户名' })
-  @IsNotBlank()
-  readonly username: string;
-
+export class UpdatePasswordDto {
   @ApiProperty({ description: '密码' })
   @IsNotBlank()
   readonly password: string;

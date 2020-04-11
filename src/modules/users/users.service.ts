@@ -43,4 +43,24 @@ export class UsersService {
   async findById(id: number) {
     return await this.usersRepository.findOne({ id });
   }
+
+  /**
+   * 修改 password
+   * @param id userId
+   * @param password 密码
+   */
+  async updatePassword(id: number, password: string) {
+    const user = await this.findById(id);
+    user.password = password;
+    return await this.usersRepository.save(user);
+  }
+
+  /**
+   * 修改 头像
+   * @param id userId
+   * @param avatar 头像地址
+   */
+  async updateAvatar(id: number, avatar: string) {
+    return await this.usersRepository.update(id, { avatar });
+  }
 }
